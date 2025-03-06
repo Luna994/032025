@@ -16,20 +16,36 @@
       font-family: Arial, sans-serif;
       background: linear-gradient(180deg, #0B1033, #1A2B5F);
       color: #fff;
+      min-height: 100vh;
       display: flex;
-      flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100vh;
-      text-align: center;
     }
 
-    h1 {
+    .container {
+      max-width: 1200px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 2rem;
+    }
+
+    /* Левая часть: заголовок, таймер, кнопка */
+    .left-column {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-right: 2rem;
+    }
+
+    .left-column h1 {
       font-size: 2.4rem;
       margin-bottom: 0.5rem;
     }
 
-    h2 {
+    .left-column h2 {
       font-size: 1.2rem;
       font-weight: 400;
       opacity: 0.9;
@@ -42,10 +58,12 @@
       opacity: 0.9;
     }
 
+    /* Таймер */
     .countdown {
       display: flex;
       gap: 1rem;
       margin-bottom: 2rem;
+      flex-wrap: wrap;
     }
 
     .time-box {
@@ -56,6 +74,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      margin-bottom: 1rem;
     }
 
     .time-box span {
@@ -79,57 +98,82 @@
       border-radius: 8px;
       font-weight: bold;
       transition: background-color 0.3s ease;
+      text-align: center;
+      max-width: 250px;
     }
 
     .btn:hover {
       background-color: #3A66BD;
     }
 
+    /* Правая часть: изображение */
+    .right-column {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .right-column img {
+      max-width: 100%;
+      height: auto;
+      /* Можно добавить небольшую анимацию */
+      transition: transform 0.3s ease;
+    }
+
+    .right-column img:hover {
+      transform: scale(1.05);
+    }
+
     /* Адаптивность */
-    @media (max-width: 480px) {
-      h1 {
-        font-size: 1.8rem;
+    @media (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
       }
-      .countdown {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-      .time-box {
-        width: 60px;
-        margin-bottom: 1rem;
-      }
-      .time-box span {
-        font-size: 1.4rem;
+      .left-column, .right-column {
+        padding: 0;
+        margin-bottom: 2rem;
       }
     }
   </style>
 </head>
 <body>
 
-  <h1>НейроПрактический интенсив</h1>
-  <h2>«Новый ChatGPT — осваивай, внедряй, зарабатывай»</h2>
-  <div class="date-info">13 марта 2025 года, 19:00 МСК</div>
+  <div class="container">
+    <div class="left-column">
+      <h1>НейроПрактический интенсив</h1>
+      <h2>«Новый ChatGPT — осваивай, внедряй, зарабатывай»</h2>
+      <div class="date-info">13 марта 2025 года, 19:00 МСК</div>
 
-  <div class="countdown">
-    <div class="time-box">
-      <span id="days">00</span>
-      <div class="time-label">дней</div>
+      <div class="countdown">
+        <div class="time-box">
+          <span id="days">00</span>
+          <div class="time-label">дней</div>
+        </div>
+        <div class="time-box">
+          <span id="hours">00</span>
+          <div class="time-label">часов</div>
+        </div>
+        <div class="time-box">
+          <span id="minutes">00</span>
+          <div class="time-label">минут</div>
+        </div>
+        <div class="time-box">
+          <span id="seconds">00</span>
+          <div class="time-label">секунд</div>
+        </div>
+      </div>
+
+      <a href="https://t.me/neiropraktik_bot" class="btn">Присоединиться к интенсиву</a>
     </div>
-    <div class="time-box">
-      <span id="hours">00</span>
-      <div class="time-label">часов</div>
-    </div>
-    <div class="time-box">
-      <span id="minutes">00</span>
-      <div class="time-label">минут</div>
-    </div>
-    <div class="time-box">
-      <span id="seconds">00</span>
-      <div class="time-label">секунд</div>
+
+    <div class="right-column">
+      <!-- Замените ссылку на любую подходящую картинку (PNG/SVG) -->
+      <!--<img src="https://raw.githubusercontent.com/luna994/AI-SkillHub/main/neural-net.png" alt="Neural Network">-->
+      <img src="https://drive.google.com/uc?export=download&id=1hVu9qxq1-BLUMuQVkLR3qO-p-ujl6KR0">
     </div>
   </div>
-
-  <a href="https://t.me/neiropraktik_bot" class="btn">Присоединиться к интенсиву</a>
 
   <script>
     // Устанавливаем конечную дату и время
@@ -162,6 +206,5 @@
       }
     }, 1000);
   </script>
-
 </body>
 </html>
