@@ -2,15 +2,70 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Моя страница</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>НейроПрактический интенсив "Новый ChatGPT"</title>
+  <style>
+    /* Сброс стилей */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background: linear-gradient(135deg, #f0f0f0, #ffffff);
+      font-family: 'Arial', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .container {
+      background: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+      text-align: center;
+      max-width: 500px;
+      perspective: 1000px; /* для 3D эффекта */
+      transform: translateZ(0);
+    }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+      transform: translateZ(20px);
+    }
+    p {
+      font-size: 16px;
+      margin-bottom: 30px;
+      line-height: 1.5;
+      transform: translateZ(20px);
+    }
+    .btn {
+      background: #007bff;
+      color: #fff;
+      text-decoration: none;
+      padding: 15px 30px;
+      border-radius: 5px;
+      font-size: 18px;
+      transition: transform 0.3s, box-shadow 0.3s;
+      display: inline-block;
+      transform: translateZ(20px);
+      /* Анимация плавающей кнопки */
+      animation: floating 2s ease-in-out infinite;
+    }
+    .btn:hover {
+      transform: translateY(-5px) translateZ(20px);
+      box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+    }
+    @keyframes floating {
+      0% { transform: translateY(0px) translateZ(20px); }
+      50% { transform: translateY(-10px) translateZ(20px); }
+      100% { transform: translateY(0px) translateZ(20px); }
+    }
+  </style>
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-  <div class="md:w-1/2">
-    <div class="w-full max-w-3xl mx-auto overflow-hidden">
-      <img src="image.png" alt="Иллюстрация нейронной сети" class="w-full h-full object-contain">
-    </div>
+<body>
+  <div class="container">
+    <h1>Бесплатный НейроПрактический интенсив</h1>
+    <p>«Новый ChatGPT — осваивай, внедряй, зарабатывай»<br>
+       13 марта 2025 года, 19:00 МСК</p>
+    <a href="https://t.me/neiropraktik_bot" class="btn">Присоединиться</a>
   </div>
 </body>
 </html>
