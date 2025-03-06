@@ -2,89 +2,166 @@
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Бесплатный нейроинтенсив "Новый ChatGPT"</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>НейроПрактический интенсив</title>
   <style>
-    html, body {
+    /* Сброс базовых отступов и размеров */
+    * {
       margin: 0;
       padding: 0;
-      font-family: 'Montserrat', sans-serif;
-      height: 100%;
-      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(180deg, #0B1033, #1A2B5F);
+      color: #fff;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      color: #fff;
-    }
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border-radius: 20px;
-      padding: 40px;
-      max-width: 500px;
-      width: 90%;
+      height: 100vh;
       text-align: center;
-      position: relative;
-      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
-      overflow: hidden;
     }
-    /* 3D эффекты: дополнительные светящиеся элементы */
-    .card::before, .card::after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      background: rgba(255, 255, 255, 0.1);
-      filter: blur(30px);
-    }
-    .card::before {
-      width: 150px;
-      height: 150px;
-      top: -75px;
-      right: -75px;
-    }
-    .card::after {
-      width: 200px;
-      height: 200px;
-      bottom: -100px;
-      left: -100px;
-    }
+
     h1 {
-      font-size: 32px;
-      margin-bottom: 20px;
-      font-weight: 600;
+      font-size: 2.4rem;
+      margin-bottom: 0.5rem;
+    }
+
+    h2 {
+      font-size: 1.2rem;
+      font-weight: 400;
+      opacity: 0.9;
+      margin-bottom: 1rem;
+    }
+
+    .date-info {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+      opacity: 0.9;
+    }
+
+    .countdown {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .time-box {
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 1rem 0.8rem;
+      width: 70px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .time-box span {
+      font-size: 1.8rem;
+      font-weight: bold;
+      margin-bottom: 0.2rem;
+    }
+
+    .time-label {
+      font-size: 0.8rem;
+      opacity: 0.8;
       text-transform: uppercase;
-      letter-spacing: 2px;
     }
-    p {
-      font-size: 18px;
-      margin-bottom: 30px;
-      line-height: 1.5;
-    }
+
     .btn {
-      text-decoration: none;
       display: inline-block;
-      padding: 15px 40px;
-      font-size: 18px;
-      font-weight: 600;
-      color: #1f1c2c;
-      background: #fff;
-      border-radius: 50px;
-      transition: transform 0.3s, box-shadow 0.3s;
+      background-color: #4F86F7;
+      color: #fff;
+      text-decoration: none;
+      padding: 1rem 2rem;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
     }
+
     .btn:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+      background-color: #3A66BD;
+    }
+
+    /* Адаптивность */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 1.8rem;
+      }
+      .countdown {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .time-box {
+        width: 60px;
+        margin-bottom: 1rem;
+      }
+      .time-box span {
+        font-size: 1.4rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>Бесплатный нейроинтенсив</h1>
-    <p>«Новый ChatGPT — осваивай, внедряй, зарабатывай»<br>
-       13 марта 2025 года, 19:00 МСК</p>
-    <a href="https://t.me/neiropraktik_bot" class="btn">Присоединиться</a>
+
+  <h1>НейроПрактический интенсив</h1>
+  <h2>«Новый ChatGPT — осваивай, внедряй, зарабатывай»</h2>
+  <div class="date-info">13 марта 2025 года, 19:00 МСК</div>
+
+  <div class="countdown">
+    <div class="time-box">
+      <span id="days">00</span>
+      <div class="time-label">дней</div>
+    </div>
+    <div class="time-box">
+      <span id="hours">00</span>
+      <div class="time-label">часов</div>
+    </div>
+    <div class="time-box">
+      <span id="minutes">00</span>
+      <div class="time-label">минут</div>
+    </div>
+    <div class="time-box">
+      <span id="seconds">00</span>
+      <div class="time-label">секунд</div>
+    </div>
   </div>
+
+  <a href="https://t.me/neiropraktik_bot" class="btn">Присоединиться к интенсиву</a>
+
+  <script>
+    // Устанавливаем конечную дату и время
+    const targetDate = new Date("March 13, 2025 19:00:00").getTime();
+
+    // Функция обратного отсчёта
+    const countdownFunc = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      // Вычисляем дни, часы, минуты, секунды
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      // Отображаем значения на странице
+      document.getElementById("days").textContent = days < 10 ? "0" + days : days;
+      document.getElementById("hours").textContent = hours < 10 ? "0" + hours : hours;
+      document.getElementById("minutes").textContent = minutes < 10 ? "0" + minutes : minutes;
+      document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
+
+      // Если время вышло, сбрасываем таймер
+      if (distance < 0) {
+        clearInterval(countdownFunc);
+        document.getElementById("days").textContent = "00";
+        document.getElementById("hours").textContent = "00";
+        document.getElementById("minutes").textContent = "00";
+        document.getElementById("seconds").textContent = "00";
+      }
+    }, 1000);
+  </script>
+
 </body>
 </html>
