@@ -4,65 +4,93 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>НейроПрактический интенсив "Новый ChatGPT"</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Сброс стилей */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      background: linear-gradient(135deg, #f0f0f0, #ffffff);
-      font-family: 'Arial', sans-serif;
-      height: 100vh;
+    html, body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(135deg, #1f1c2c, #928dab);
+      height: 100%;
       display: flex;
       align-items: center;
       justify-content: center;
+      color: #fff;
     }
-    .container {
-      background: #fff;
+    .card {
+      position: relative;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
       padding: 40px;
-      border-radius: 10px;
-      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
-      text-align: center;
+      width: 90%;
       max-width: 500px;
-      perspective: 1000px; /* для 3D эффекта */
-      transform: translateZ(0);
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      transform: perspective(1000px) translateZ(0);
+      overflow: hidden;
     }
-    h1 {
-      font-size: 24px;
+    .card h1 {
+      font-size: 28px;
       margin-bottom: 20px;
-      transform: translateZ(20px);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
     }
-    p {
+    .card p {
       font-size: 16px;
       margin-bottom: 30px;
       line-height: 1.5;
-      transform: translateZ(20px);
     }
     .btn {
-      background: #007bff;
-      color: #fff;
-      text-decoration: none;
-      padding: 15px 30px;
-      border-radius: 5px;
-      font-size: 18px;
-      transition: transform 0.3s, box-shadow 0.3s;
       display: inline-block;
-      transform: translateZ(20px);
-      /* Анимация плавающей кнопки */
-      animation: floating 2s ease-in-out infinite;
+      padding: 15px 30px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #1f1c2c;
+      background: #fff;
+      border: none;
+      border-radius: 50px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     }
     .btn:hover {
-      transform: translateY(-5px) translateZ(20px);
-      box-shadow: 0 12px 20px rgba(0,0,0,0.2);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     }
-    @keyframes floating {
-      0% { transform: translateY(0px) translateZ(20px); }
-      50% { transform: translateY(-10px) translateZ(20px); }
-      100% { transform: translateY(0px) translateZ(20px); }
+    /* Дополнительные 3D элементы с использованием псевдоэлементов */
+    .card::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 120px;
+      height: 120px;
+      background: radial-gradient(circle, rgba(255,255,255,0.3), transparent);
+      border-radius: 50%;
+      filter: blur(20px);
+      z-index: -1;
+    }
+    .card::after {
+      content: "";
+      position: absolute;
+      bottom: -50px;
+      left: -50px;
+      width: 180px;
+      height: 180px;
+      background: radial-gradient(circle, rgba(255,255,255,0.2), transparent);
+      border-radius: 50%;
+      filter: blur(30px);
+      z-index: -1;
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>Бесплатный НейроПрактический интенсив</h1>
+  <div class="card">
+    <h1>Бесплатный нейроинтенсив</h1>
     <p>«Новый ChatGPT — осваивай, внедряй, зарабатывай»<br>
        13 марта 2025 года, 19:00 МСК</p>
     <a href="https://t.me/neiropraktik_bot" class="btn">Присоединиться</a>
