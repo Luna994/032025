@@ -93,13 +93,13 @@
     .btn:hover {
       background-color: #3A66BD;
     }
-    /* Правая часть: изображение */
+    /* Правая часть: картинка и подпись в одной линии */
     .right-column {
       flex: 1;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+      display: flex;                /* Используем flex */
+      align-items: center;          /* Выравнивание по вертикали */
+      justify-content: flex-start;  /* Выравнивание по левому краю */
+      gap: 1rem;                    /* Расстояние между картинкой и текстом */
     }
     .right-column img {
       width: 60%;
@@ -110,8 +110,7 @@
       transform: scale(1.05);
     }
     .caption {
-      margin-top: 1rem;
-      text-align: left;
+      text-align: left;   /* Выравнивание текста подписи по левому краю */
       font-size: 1rem;
       opacity: 0.9;
     }
@@ -129,6 +128,10 @@
       .left-column, .right-column {
         padding: 0;
         margin-bottom: 2rem;
+      }
+      /* Если нужно, можно пересмотреть размеры изображения на маленьких экранах */
+      .right-column img {
+        width: 80%;
       }
     }
   </style>
@@ -176,18 +179,4 @@
       const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-      document.getElementById("days").textContent = days < 10 ? "0" + days : days;
-      document.getElementById("hours").textContent = hours < 10 ? "0" + hours : hours;
-      document.getElementById("minutes").textContent = minutes < 10 ? "0" + minutes : minutes;
-      document.getElementById("seconds").textContent = seconds < 10 ? "0" + seconds : seconds;
-      if (distance < 0) {
-        clearInterval(countdownFunc);
-        document.getElementById("days").textContent = "00";
-        document.getElementById("hours").textContent = "00";
-        document.getElementById("minutes").textContent = "00";
-        document.getElementById("seconds").textContent = "00";
-      }
-    }, 1000);
-  </script>
-</body>
-</html>
+      document.getElementById("days").textContent = days < 10 ? "0
