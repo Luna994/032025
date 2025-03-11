@@ -97,6 +97,7 @@
     .right-column {
       flex: 1;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
     }
@@ -107,6 +108,12 @@
     }
     .right-column img:hover {
       transform: scale(1.05);
+    }
+    .caption {
+      margin-top: 1rem;
+      text-align: center;
+      font-size: 1rem;
+      opacity: 0.9;
     }
     /* Адаптивность */
     @media (max-width: 900px) {
@@ -150,6 +157,10 @@
     <div class="right-column">
       <!-- Ссылка на картинку из репозитория -->
       <img src="https://luna994.github.io/032025/optimized_hero_photo.jpg" alt="Neural Network">
+      <div class="caption">
+        Алексей Велчев<br>
+        эксперт по нейросетям, цифровым технологиям и AI-монетизации, создатель успешного онлайн-сообщества.
+      </div>
     </div>
   </div>
   <script>
